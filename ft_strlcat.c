@@ -6,7 +6,7 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:40:23 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/12 19:11:18 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/12 20:25:35 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
-	size_t dest_len;
+	size_t	dest_len;
 
 	if (!dst || !src)
 		return (0);
