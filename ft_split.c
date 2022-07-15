@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		count_words(const char *s, char c)
 {
@@ -55,7 +54,7 @@ char	**ft_split(char const *s, char c)
 	wc = 0;
 	len = 0;
 	i = -1;
-	list = (char **)malloc((count_words(s, c) + 1) * sizeof(char*));
+	list = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	while (s[++i])
 	{
 		if (s[i] == c && len > 0)

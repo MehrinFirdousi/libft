@@ -18,13 +18,9 @@
 
 void freeList(t_list *head) {if (head) freeList(head->next); free(head);}
 
-void delfunc(void *content)
-{
-	*(int *)content = 1111;
-}
 int	main(int argc, char **argv)
 {
-	int a = 7, b = 6, c = 5, d = 224, e = 0, f = 393;
+	int a = 7, b = 6, c = 5, d = 23904324, e = 0, f = 393;
 	t_list *list = 0;
 	ft_lstadd_front(&list, ft_lstnew(&a));	
 	ft_lstadd_front(&list, ft_lstnew(&b));
@@ -32,19 +28,10 @@ int	main(int argc, char **argv)
 	ft_lstadd_front(&list, ft_lstnew(&d));
 	ft_lstadd_front(&list, ft_lstnew(&e));
 	ft_lstadd_front(&list, ft_lstnew(&f));
-
-	ft_lstadd_back(&list, ft_lstnew(&b));
-	ft_lstadd_back(&list, ft_lstnew(&d));
-
 	for (t_list *node = list; node; node = node->next)
 		printf("%d, %x\n", *(int *)(node->content), node);
-	int i = 0;
-	ft_lstclear(&list, delfunc);
-	if (!list)
-		printf("list is null");
-	else
-		for (t_list *node = list; node && i < 10; node = node->next, i++)
-			printf("^ %d, %x\n", *(int *)(node->content), node);
+	printf(" - %d, %x\n", *(int *)(list->content), list);
+	printf(" - %d, %x\n", *(int *)(list->next->content), list->next);
 	freeList(list);
 	return (0);
 }
