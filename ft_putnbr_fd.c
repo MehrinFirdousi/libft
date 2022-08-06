@@ -6,12 +6,11 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:44:15 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/15 16:44:15 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/16 12:43:18 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <io.h> // 	REMEMBER TO REMOVE AND ADD UNISTD TO LIBFT.H
 
 void	ft_putnbr_fd(int n, int fd)
 {

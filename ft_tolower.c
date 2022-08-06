@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 16:44:56 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/17 22:10:51 by mfirdous         ###   ########.fr       */
+/*   Created: 2022/07/13 12:21:49 by mfirdous          #+#    #+#             */
+/*   Updated: 2022/07/13 12:35:33 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_tolower(int c)
 {
-	int		len1;
-	int		len2;
-	char	*res;
-
-	if (!s1)
-		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	res = (char *)malloc((len1 + len2 + 1) * sizeof(char));
-	if (!res)
-		return (0);
-	ft_strlcpy(res, s1, len1 + len2 + 1);
-	ft_strlcat(res, s2, len1 + len2 + 1);
-	return (res);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

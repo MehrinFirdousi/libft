@@ -6,17 +6,17 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 22:39:22 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/14 22:39:22 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:34:55 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
-	int i;
-	int word_found;
-	int count;
+	int	i;
+	int	word_found;
+	int	count;
 
 	i = -1;
 	count = 0;
@@ -36,37 +36,50 @@ int		count_words(const char *s, char c)
 	return (count);
 }
 
-void	add_to_list(char **list, int *wc, char *buf, int *len)
+static void	ft_init(int *i, int *start, int *wc)
 {
-	list[*wc] = (char *)malloc((*len + 1) * sizeof(char));
-	buf[*len] = 0;
-	ft_strlcpy(list[(*wc)++], buf, *len + 1);
+	*i = -1;
+	*start = -1;
+	*wc = 0;
+}
+
+static char	**create_list(int *count, const char *s, char c)
+{
+	char	**list;
+
+	if (!s)
+		return (0);
+	*count = count_words(s, c);
+	list = (char **) malloc((*count + 1) * sizeof(char **));
+	if (!list)
+		return (0);
+	return (list);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char **list;
-	char buf[150];
-	int wc;
-	int len;
-	int i;
+	char	**list;
+	int		i;
+	int		start;
+	int		wc;
+	int		count;
 
-	wc = 0;
-	len = 0;
-	i = -1;
-	list = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
-	while (s[++i])
+	list = create_list(&count, s, c);
+	if (!list)
+		return (0);
+	ft_init(&i, &start, &wc);
+	while (wc < count)
 	{
-		if (s[i] == c && len > 0)
+		if (s[++i] != c && start == -1)
+			start = i;
+		else if ((!s[i] || s[i] == c) && (start != -1))
 		{
-			add_to_list(list, &wc, buf, &len);
-			len = 0;
+			list[wc] = ft_substr(s, start, i - start);
+			if (!list[wc++])
+				return (0);
+			start = -1;
 		}
-		else if (s[i] != c)
-			buf[len++] = s[i];
 	}
-	if (len > 0)
-		add_to_list(list, &wc, buf, &len);
-	list[wc] = NULL;
+	list[wc] = 0;
 	return (list);
 }

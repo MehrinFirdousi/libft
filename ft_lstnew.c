@@ -6,21 +6,21 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:39:49 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/15 19:39:49 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/16 15:25:43 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list 	*ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*newNode;
+	t_list	*new_node;
 
-	newNode = (t_list *)malloc(sizeof(t_list));
-	if (newNode)
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node)
 	{
-		newNode->content = content;
-		newNode->next = 0;
+		new_node->content = content;
+		new_node->next = 0;
 	}
-	return (newNode);
+	return (new_node);
 }

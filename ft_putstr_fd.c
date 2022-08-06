@@ -6,14 +6,14 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:29:34 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/15 16:29:34 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:48:13 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "io.h" // 	REMEMBER TO REMOVE AND ADD UNISTD TO LIBFT.H
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s)
+		write(fd, s, ft_strlen(s));
 }

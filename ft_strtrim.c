@@ -6,18 +6,18 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 19:28:25 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/14 19:28:25 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:40:51 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_from_set(char c, char *set)
+int	is_from_set(char c, char *set)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while(set[++i])
+	while (set[++i])
 		if (c == set[i])
 			return (1);
 	return (0);
@@ -30,8 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	int		i;
 
-	if (!s1 || !set)
-		return (ft_strdup(s1));
+	if (!s1)
+		return (ft_strdup(""));
 	i = 0;
 	while (s1[i] && is_from_set(s1[i], (char *)set))
 		i++;

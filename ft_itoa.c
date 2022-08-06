@@ -6,7 +6,7 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:07:45 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/15 15:07:45 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/16 12:40:23 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_itoa(int n)
 	int		i;
 	int		sign;
 	char	buf[12];
-	
+
 	sign = 1;
 	i = 12;
 	buf[--i] = 0;
@@ -30,7 +30,7 @@ char	*ft_itoa(int n)
 	{
 		buf[--i] = sign * (n % 10) + 48;
 		n /= 10;
-	} 
+	}
 	if (sign == -1)
 		buf[--i] = '-';
 	str = (char *)malloc((12 - i) * sizeof(char));

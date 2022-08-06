@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 16:44:56 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/17 22:10:51 by mfirdous         ###   ########.fr       */
+/*   Created: 2022/07/13 12:39:35 by mfirdous          #+#    #+#             */
+/*   Updated: 2022/07/16 19:16:21 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		len1;
-	int		len2;
-	char	*res;
+	int		i;
+	int		slen;
+	char	ch;
 
-	if (!s1)
-		return (0);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	res = (char *)malloc((len1 + len2 + 1) * sizeof(char));
-	if (!res)
-		return (0);
-	ft_strlcpy(res, s1, len1 + len2 + 1);
-	ft_strlcat(res, s2, len1 + len2 + 1);
-	return (res);
+	i = 0;
+	slen = 0;
+	ch = (char)c;
+	while (s[slen])
+		slen++;
+	if (!ch && !s[slen])
+		return ((char *)&s[slen]);
+	while (slen >= 0)
+	{
+		if (s[slen] == ch)
+			return ((char *)&s[slen]);
+		slen--;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mfirdous <mfirdous@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:51:20 by mfirdous          #+#    #+#             */
-/*   Updated: 2022/07/15 19:51:20 by mfirdous         ###   ########.fr       */
+/*   Updated: 2022/07/16 12:40:40 by mfirdous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!(*lst))
 		(*lst) = new;
-	else 
+	else
 	{
 		new->next = (*lst);
 		(*lst) = new;
